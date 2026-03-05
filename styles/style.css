@@ -1,5 +1,7 @@
 /* kontejner nebude širší jak 1200px, bude vycentrovaný */
 body > .container {
+    margin: 0 auto;
+    max-width: 1200px;
 }
 
 /* obrázky jsou responzivní */
@@ -9,30 +11,59 @@ body > .container {
 /* panely date a article jsou vedle sebe */
 
 .news-item {
+    flex-shrink: 0;
 }
 
 /* datum je vystředěno ve čtverci o hraně 116px, mezi měsícem a dnem je "--color-bg-pink" linka, pod dnem je "--category-accent" linka */
 .news-item__date {
+
+    flex-direction: column;
+    text-align: center;
+    flex-shrink: 0;
+    order: 1;
 }
 
 .news-item__date-part--month {
+    border-bottom: 2px solid var(--color-bg-pink);
 }
 
 .news-item__date-part--day {
+    border-bottom: 6px solid var(--category-accent);
+    flex-grow: 1;
 }
 
 /* mezi datumem a boxem je modrá tečka (8px) s bílým okrajem (3px) */
 .news-item::before {
+
+    content: "";
+    background-color: var(--category-accent);
+    align-self: center;
+    height: 8px;
+    width: 8px;
+    flex-shrink: 0;
+    display: block;
+    border: 3px solid var(--color-bg-pink);
+    border-radius: 50%;
+    order: 2;
+    margin: 0 -3px;
+    z-index: 1
+
 } 
 /* všechny boxy s perexem článku jsou stejně široké */
 /* nemělo by se stát, že červená šipka v bílém kroužku překryje text perexu */ 
+
 .news-item__article {
+    display: flex;
+    gap: 1rem;
+    flex-grow: 1;
+    order: 3;
 }
 
 .news-item__image-link {
 }
 
 .news-item__content {
+    padding-right: 2.5rem;
 }
 
 /* všechny odkazy vizuálně reagují na přejetí myší */
@@ -49,16 +80,21 @@ body > .container {
 /* text "více" je prťavý tak, až není viditelný a odkaz "->" po najetí myší se změní barva borderu */
 
 .news-item__more-link {
+    font-size: 0
+    
 }
 
 
 /* barvy kategorií reagují na modifikátory */
 
 .news-item--school {
+    display: flex;
 }
 
 .news-item--engineering {
+    display: flex;
 }
 
 .news-item--success {
+    display: flex;
 }
