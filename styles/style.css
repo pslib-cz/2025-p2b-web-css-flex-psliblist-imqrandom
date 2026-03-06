@@ -6,6 +6,11 @@ body > .container {
 
 /* obrázky jsou responzivní */
 .img-responsive {
+    display: inline-block;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    margin: 0;
 }
 
 /* panely date a article jsou vedle sebe */
@@ -60,20 +65,34 @@ body > .container {
 }
 
 .news-item__image-link {
+    flex-shrink: 0;
 }
 
 .news-item__content {
     padding-right: 2.5rem;
 }
 
+.news-item__category-link {
+    color: var(--category-text);
+    background-color: var(--category-bg);
+    font-weight: 700;
+    text-decoration: none;
+    overflow: hidden;
+    padding: .25rem .5rem;
+    border-radius: .5rem;
+    vertical-align: middle;
+}
 /* všechny odkazy vizuálně reagují na přejetí myší */
 .news-item__title-link:hover {
+    color: var(--color-hover-title);
 }
 
 .news-item__category-link:hover {
+    text-decoration: underline
 }
 
 .news-item__more-link:hover::after {
+    border-color: var(--color-accent1);
 }
 
 
@@ -81,7 +100,6 @@ body > .container {
 
 .news-item__more-link {
     font-size: 0
-    
 }
 
 
@@ -89,12 +107,18 @@ body > .container {
 
 .news-item--school {
     display: flex;
+    --category-text: var(--color-accent2);
+    --category-accent: var(--color-accent2);
 }
 
 .news-item--engineering {
     display: flex;
+    --category-text: var(--color-accent3);
+    --category-accent: var(--color-accent3);
 }
 
 .news-item--success {
     display: flex;
+    --category-text: var(--color-accent4);
+    --category-accent: var(--color-accent4);
 }
